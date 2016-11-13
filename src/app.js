@@ -9,7 +9,7 @@ import {
     Role,
     User
 } from './models';
-import exprest from 'exprest';
+import exprest from 'exp-rest';
 
 
 // app
