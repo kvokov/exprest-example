@@ -5,10 +5,15 @@ import config from './config';
 import middleware from './middleware';
 import routing from './routes';
 import {AppError} from './helpers';
+import {
+    Role,
+    User
+} from './models';
+import exprest from 'exprest';
 
 
 // app
-var app = express();
+const app = express();
 
 
 // middleware
@@ -18,6 +23,25 @@ app.use(cors({origin: true}));
 
 // router middleware
 app.use(middleware());
+
+
+// rest ----------------------------------------------------------------------------------------------------------------
+const rest = exprest({
+    pagination: {
+        itemsPerPage: 50,
+    },
+    resources: [
+        {
+            model: User,
+            collectionName: 'users',
+            itemName: 'user',
+            identifier: 'id'
+        },
+        Role
+    ]
+});
+app.use(rest);
+//----------------------------------------------------------------------------------------------------------------------
 
 
 // routing
@@ -41,6 +65,7 @@ app.use((err, req, res, next) => {
 
 
 // error handler
+
 app.use((err, req, res, next) => { // eslint-disable-line no-unused-vars
     res
         .status(err.status)
