@@ -1,37 +1,51 @@
-<h1 align="center">A skeleton for Node.js web applications</h1>
+# ExpREST example
 
-<p align="center">
-  <img src="http://svgporn.com/logos/nodejs-icon.svg" width="100" title="Node.js">&emsp;
-  <img src="http://svgporn.com/logos/express.svg" width="100" title="Express">&emsp;
-  <img src="http://svgporn.com/logos/es6.svg" width="100" title="ECMAScript 6">&emsp;
-  <img src="http://svgporn.com/logos/babel.svg" width="100" title="Babel">&emsp;
-  <img src="http://svgporn.com/logos/mocha.svg" width="100" title="Mocha">
-</p>
+Example project for demonstration [ExpREST](https://github.com/kvokov/exprest) power. 
 
-## Getting started
+Based on [Skeleton for Node.js web applications](https://github.com/kvokov/node-web-starter).
 
-```shell
-$ git clone https://github.com/kvokov/node-web-starter.git my-app
-$ cd my-app
-$ npm install
+
+
+## Getting Started
+
+- Clone repository and install dependencies (also `knex` should be installed globally)
+```bash
+$ git clone https://github.com/kvokov/exprest-example
+$ cd exprest-example/
+$ npm install && npm install knex -g
+```
+
+- Update `knexfile.js` with your database connection
+> This example used MySQL but you are free to replace it with PostgreSQL, SQLite3, Oracle or some else DBMS supported by [Bookshelf.js](http://bookshelfjs.org/). Just install needed database driver npm package and update `knexfile.js` config.
+
+- Apply migrations
+```bash
+$ knex migrate:latest
+```
+
+- Run application
+```bash
 $ npm start
 ```
+
+## API Endpoints
+
+| Method | URL          | Action                  |
+| :----- | :------------| :-----------------------|
+| GET    | `/users`     | Get list of users       |
+| GET    | `/users/:id` | Get a user by id        |
+| POST   | `/users`     | Create a new user       |
+| PUT    | `/users/:id` | Update an existing user |
+| DELETE | `/users/:id` | Delete an existing user |
+||||
+| GET    | `/roles`     | Get list of roles       |
+| GET    | `/roles/:id` | Get a role by id        |
+| POST   | `/roles`     | Create a new role       |
+| PUT    | `/roles/:id` | Update an existing role |
+| DELETE | `/roles/:id` | Delete an existing role |
+
+## Documentation 
+
+You can find ExpREST documentation [here](https://github.com/kvokov/exprest#documentation).
+
 **That's it!** :sunglasses:
-
-## NPM commands
-
-`$ npm start` - Run in development mode
-
-`$ npm test` - Run automated tests
-
-`$ npm run build` - Make production build
-
-## License
-
-"THE BEER-WARE LICENSE" (Revision 42):
-
-DK wrote this file. As long as you retain this notice you can do whatever you 
-want with this stuff. If we meet some day, and you think this stuff is worth it, 
-you can buy me a beer in return.
-
-

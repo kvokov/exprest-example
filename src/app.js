@@ -13,7 +13,7 @@ import exprest from 'exprest';
 
 
 // app
-var app = express();
+const app = express();
 
 
 // middleware
@@ -40,16 +40,7 @@ const rest = exprest({
         Role
     ]
 });
-/*
- rest.createResource(Role);
- rest.createResource({
- model: User,
- endpoint: 'users',
- identifier: 'id'
- });
- */
 app.use(rest);
-
 //----------------------------------------------------------------------------------------------------------------------
 
 
