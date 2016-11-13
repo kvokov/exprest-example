@@ -2,32 +2,29 @@
 
 Example project for demonstration [ExpREST](https://github.com/kvokov/exprest) power. 
 
-
-Based on [Skeleton for Node.js web applications](https://github.com/kvokov/node-web-starter).
-
-
+Application based on [Skeleton for Node.js web applications](https://github.com/kvokov/node-web-starter).
 
 ## Getting Started
 
 - Clone repository and install dependencies (also `knex` should be installed globally)
-```bash
-$ git clone https://github.com/kvokov/exprest-example
-$ cd exprest-example/
-$ npm install && npm install knex -g
-```
+    ```bash
+    $ git clone https://github.com/kvokov/exprest-example
+    $ cd exprest-example/
+    $ npm install && npm install knex -g
+    ```
 
 - Update `knexfile.js` with your database connection
-> This example used MySQL but you are free to replace it with PostgreSQL, SQLite3, Oracle or some else DBMS supported by [Bookshelf.js](http://bookshelfjs.org/). Just install needed database driver npm package and update `knexfile.js` config.
+    > This example used MySQL but you are free to replace it with PostgreSQL, SQLite3, Oracle or some else DBMS supported by [Bookshelf.js](http://bookshelfjs.org/). Just install needed database driver npm package and update `knexfile.js` config.
 
 - Apply migrations
-```bash
-$ knex migrate:latest
-```
+    ```bash
+    $ knex migrate:latest
+    ```
 
 - Run application
-```bash
-$ npm start
-```
+    ```bash
+    $ npm start
+    ```
 
 ## API Endpoints
 
