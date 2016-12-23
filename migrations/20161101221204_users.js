@@ -8,7 +8,8 @@ exports.up = function(knex, Promise) {
             table.string('last_name').notNull();
             table.integer('role_id').notNullable()
                 .defaultTo(3).unsigned().index().references('id').inTable('roles');
-            table.timestamps(false, true);
+            table.timestamp('created_at').notNullable().defaultTo(knex.raw('now()'));
+            table.timestamp('updated_at').nullable().defaultTo(null);
         })
         .then(function () {
             return knex.insert(
